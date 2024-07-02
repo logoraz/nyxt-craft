@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Nyxt dev
+Comment="Infinitely extensible hacker browser & IDE in Common Lisp"
+Exec=/home/logoraz/.config/nyxt/gnome/start-nyxt.sh
+Icon=/home/logoraz/common-lisp/nyxt/assets/nyxt_256x256.png
+Categories=Development;
+Terminal=false;
