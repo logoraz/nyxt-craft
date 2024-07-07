@@ -1,9 +1,14 @@
 [Desktop Entry]
-Type=Application
-Encoding=UTF-8
 Name=Nyxt dev
-Comment="Infinitely extensible hacker browser & IDE in Common Lisp"
-Exec=/home/logoraz/.config/nyxt/gnome/start-nyxt.sh
+GenericName=Web Browswer
+Comment=Infinitely extensible hacker browser & IDE in Common Lisp
+Exec=nyxt-desktop %F
 Icon=/home/logoraz/common-lisp/nyxt/assets/nyxt_256x256.png
-Categories=Development;
+Type=Application
 Terminal=false;
+Categories=WebBrowser;Network;Development;TextEditor;
+StartupNotify=true
+StartupWMClass=Nyxt
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+
+# Sym Linked to -> /usr/share/applications/
