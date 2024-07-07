@@ -11,23 +11,23 @@
 ;;; 3. TBD
 ;;; 4. TBD
 
-
-;;; Start-Up & Configuration
 (in-package #:nyxt-user)
+
 
 ;;; Base broswer/buffer configurations
 (define-configuration browser
-    ((restore-session-on-startup-p nil)))
+  ((restore-session-on-startup-p nil)))
 
 (define-configuration buffer
     ((default-modes `(emacs-mode ,@%slot-value%))))
+
 
 ;;; Nyxt custom modifications
 ;; Loading files from the same directory (~/.config/nyxt/).
 (define-nyxt-user-system-and-load nyxt-user/basic-config
   :components ("theme"
                "passwords"
-               ;; "passwords-dev"
+               "passwords-dev"
                "utilities"))
 
 (defmethod files:resolve ((profile nyxt:nyxt-profile) (file nyxt/mode/bookmark:bookmarks-file))
