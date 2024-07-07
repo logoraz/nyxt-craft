@@ -2,7 +2,6 @@
 
 ;;; Fix bug with save-new-password, fails to connect to database unless ether
 ;;; copy-username or copy-password has been invoked first
-;;; Solution -> needs to be wrapped with `with-password' Macro...
 
 (in-package #:nyxt/mode/password)
 
@@ -13,6 +12,9 @@
     ((and (password-interface buffer)
           (nyxt:has-method-p (password-interface (find-submode 'password-mode buffer))
                              #'password:save-password))
+     ;;See nyxt/source/mode/password.lisp:L159
+     ;;Not sure why this wasn't implemented similarily to `copy-password' and
+     ;;`copy-username' in this regard.
      (with-password (password-interface buffer)
        (let* ((password-name (prompt1
                               :prompt "Name for new password"
