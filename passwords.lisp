@@ -12,15 +12,15 @@
 
 (in-package #:nyxt-user)
 
-
 (defmethod initialize-instance :after ((interface password:keepassxc-interface)
                                        &key &allow-other-keys)
   (setf (password:password-file interface) "/home/logoraz/Documents/moses/p.kdbx"
         (password:key-file interface) "/home/logoraz/Documents/moses/pkf"
-        (password:yubikey-slot interface) "")) ; set as `empty string' to avoid propmt
+        (password:yubikey-slot interface) nil))
 
 (define-configuration nyxt/mode/password:password-mode
-    ((password-interface (make-instance 'password:keepassxc-interface))))
+  ((password-interface (make-instance 'password:keepassxc-interface))))
 
 (define-configuration buffer
     ((default-modes `(password-mode ,@%slot-value%))))
+
