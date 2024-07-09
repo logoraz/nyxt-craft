@@ -6,13 +6,14 @@ It also currently aims to implement an IDE/Text Editor that will surpass Emacs.
 
 ## Compiling from source
 
-Fedora Installation for gi-gtk & nyxt-electron (using cl-electon)
+Fedora Installation for gi-gtk
 
 - Install dependencies needed to compile:
 
 ```
   $ sudo dnf install sbcl webkit2gtk4.0-devel glib-networking gsettings-desktop-schemas \
-                     libfixposix-devel xclip wl-clipboard enchant pkgconf npm
+                     libfixposix-devel xclip wl-clipboard enchant pkgconf \
+                     redhat-rpm-config
 ```
 - Get source and compile:
 
@@ -20,14 +21,15 @@ Fedora Installation for gi-gtk & nyxt-electron (using cl-electon)
   $ mkdir -p ~/common-lisp             
   $ git clone --recurse-submodules https://github.com/atlas-engineer/nyxt ~/common-lisp/nyxt
   $ cd ~/common-lisp/lem
-  $ make NYXT_RENDERER="electron" all
-```
-
-- or to make with gi-gtk renderer:
-
-
-```
   $ make all
+```
+
+- Install dependencies needed for cl-electron (in addition to gi-gtk dependencies)
+
+
+```
+  $ sudo dnf intall npm
+  $ make all NYXT_RENDERER="electron"
 ```
 
 ## Config
