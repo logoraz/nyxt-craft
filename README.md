@@ -30,7 +30,7 @@ Fedora Installation for gi-gtk (& cl-electron)
 
 ```
   $ sudo dnf intall npm
-  $ make all NYXT_RENDERER="electron"
+  $ make all NYXT_RENDERER=electron
 ```
 
 ## Config
