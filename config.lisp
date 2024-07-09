@@ -13,6 +13,13 @@
 
 (in-package #:nyxt-user)
 
+;;; Nyxt custom modifications
+;; Loading files from the same directory (~/.config/nyxt/).
+(define-nyxt-user-system-and-load nyxt-user/basic-config
+  :components ("theme"
+               "passwords"
+               ;; "passwords-dev"
+               "utilities"))
 
 ;;; Base broswer/buffer configurations
 (define-configuration browser
@@ -21,18 +28,10 @@
 (define-configuration buffer
     ((default-modes `(emacs-mode ,@%slot-value%))))
 
-
-;;; Nyxt custom modifications
-;; Loading files from the same directory (~/.config/nyxt/).
-(define-nyxt-user-system-and-load nyxt-user/basic-config
-  :components ("theme"
-               "passwords"
-               "passwords-dev"
-               "utilities"))
-
-(defmethod files:resolve ((profile nyxt:nyxt-profile) (file nyxt/mode/bookmark:bookmarks-file))
-  "Reroute bookmarks to the `.config/nyxt/' directory."
-  #p"~/.config/nyxt/bookmarks.lisp")
+;; Keeping for reference, prefer bookmarks to be kept in default location: ~/.local/share/nyxt/
+;; (defmethod files:resolve ((profile nyxt:nyxt-profile) (file nyxt/mode/bookmark:bookmarks-file))
+;;   "Reroute bookmarks to the `.config/nyxt/' directory."
+;;   #p"~/Documents/moses/bookmarks.lisp")
 
 ;;; Load External Packages/Libraries
 ;; (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"

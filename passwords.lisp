@@ -21,6 +21,9 @@
 (define-configuration nyxt/mode/password:password-mode
   ((password-interface (make-instance 'password:keepassxc-interface))))
 
+;; https://github.com/atlas-engineer/nyxt/issues/3213
+;; (define-configuration password:keepassxc-interface
+;;   ((password:executable (str:split " " "flatpak-spawn --host keepassxc-cli"))))
+
 (define-configuration buffer
     ((default-modes `(password-mode ,@%slot-value%))))
-
